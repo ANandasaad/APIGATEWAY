@@ -16,6 +16,12 @@ app.use(morgan("combined"));
 app.use(limiter);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use("/home", (req, res) => {
+  return res.json({
+    success: true,
+    message: "Welcome",
+  });
+});
 
 app.use("/authservice", async (req, res, next) => {
   try {
